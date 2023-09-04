@@ -1,0 +1,52 @@
+<div style="margin-left: 200px;">
+  <form [formGroup]="myForm" (submit)="addItem()">
+    <input class="form-control" type="text" [(ngModel)]="newItem.id" placeholder="First Name" name="firstname"
+      formControlName="firstname" style="visibility: hidden;">
+
+    <input class="form-control" type="text" [(ngModel)]="newItem.firstname" placeholder="First Name" name="firstname" formControlName="firstname">
+    <input class="form-control" type="text" [(ngModel)]="newItem.lastname" placeholder="Last Name" name="lastname" formControlName="lastname">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-primary" (click)="resetForm()">Reset</button>
+  </form>
+  <h2>List of Members</h2>
+
+<ul class="list-group">
+  <li *ngFor="let item of itemList" class="list-group-item d-flex justify-content-between align-items-center"
+    style="width: 300px;">
+    <span>{{item.firstname + ' ' + item.lastname}}</span>
+
+
+    <div class="btn-group">
+      <button class="btn btn-danger btn-sm" (click)="deleteItem(item.id)">Delete</button>
+      <button class="btn btn-info btn-sm" data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop" (click)="getItemId(item)">
+        Edit</button>
+    </div>
+
+  </li>
+</ul>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Information</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input class="form-control" type="text" [(ngModel)]="editItem.firstname" placeholder="First Name" name="firstname">
+        <input class="form-control" type="text" [(ngModel)]="editItem.lastname" placeholder="Last Name" name="lastname">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateItem()" >Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+

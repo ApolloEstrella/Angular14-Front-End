@@ -1,0 +1,30 @@
+a {
+  font-size: x-large;
+  color: blue;
+  /* Default link color */
+  text-decoration: none;
+  /* Remove underline for better appearance */
+}
+
+a:active {
+
+  color: red;
+  /* Change this to your desired color */
+}
+
+a:hover {
+
+  background-color: blueviolet;
+  border-radius: 10px;
+  /* Change this to your desired color */
+}
+
+.nav-link {
+  color: white
+}
+
+.company-name {
+   font-size: xx-large;
+   color: yellow;
+   padding-right: 15px;
+}
